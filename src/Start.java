@@ -47,6 +47,19 @@ public class Start {
 		System.out.println("La resta de "+ num1 +" y "+ num2 +" es "+ (num1-num2) );		
 	}
 	
+	public static void multiply() {
+		float num1;
+		float num2;
+		
+		System.out.print("\nIntroduzca el primer número flotante a multiplicar: ");
+		num1 = reader.nextFloat();
+		
+		System.out.print("Introduzca el segundo número flotante a multiplicar: ");
+		num2 = reader.nextFloat();
+		
+		System.out.println("La multiplicación de "+ num1 +" y "+ num2 +" es "+ (num1*num2) );		
+	}
+	
 		
 	public static void main(String[] args) {
 
@@ -70,7 +83,7 @@ public class Start {
 						subtract();
 						break;
 					case 3:
-						System.out.println("3");
+						multiply();
 						break;
 					case 4:
 						System.out.println("4");
