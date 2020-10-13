@@ -21,7 +21,7 @@ public class Start {
 		System.out.println(" 0. Salir");		
 	}
 	
-	public static void suma() {
+	public static void add() {
 		float num1;
 		float num2;
 		
@@ -34,6 +34,20 @@ public class Start {
 		System.out.println("La suma de "+ num1 +" y "+ num2 +" es "+ (num1+num2) );		
 	}
 	
+	public static void subtract() {
+		float num1;
+		float num2;
+		
+		System.out.print("\nIntroduzca el primer número flotante a restar: ");
+		num1 = reader.nextFloat();
+		
+		System.out.print("Introduzca el segundo número flotante a restar: ");
+		num2 = reader.nextFloat();
+		
+		System.out.println("La resta de "+ num1 +" y "+ num2 +" es "+ (num1-num2) );		
+	}
+	
+		
 	public static void main(String[] args) {
 
 
@@ -50,10 +64,10 @@ public class Start {
 
 				switch (optionSelected) {
 					case 1:
-						suma();
+						add();
 						break;
 					case 2:
-						System.out.println("2");
+						subtract();
 						break;
 					case 3:
 						System.out.println("3");
@@ -77,7 +91,7 @@ public class Start {
 						System.out.println("El programa ha finalizado");
 						break;
 					default:
-						System.out.println("Opción errónea”");
+						System.out.println("Opción errónea");
 						break;
 				}
 
