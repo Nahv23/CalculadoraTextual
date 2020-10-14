@@ -76,7 +76,7 @@ public class Start {
 		}
 
 	}
-	
+
 	public static void rest() {
 		float num1;
 		float num2;
@@ -92,6 +92,92 @@ public class Start {
 		} else {
 			System.out.println("Error division por 0");
 		}
+
+	}
+
+	public static String zodiacSign(int number) {
+
+		switch (number) {
+		case 1:
+			return "Aries";
+		case 2:
+			return "Tauro";
+		case 3:
+			return "Géminis";
+		case 4:
+			return "Cáncer";
+		case 5:
+			return "Leo";
+		case 6:
+			return "Virgo";
+		case 7:
+			return "Libra";
+		case 8:
+			return "Escorpio";
+		case 9:
+			return "Sagitario";
+		case 10:
+			return "Capricornio";
+		case 11:
+			return "Acuario";
+		case 12:
+			return "Piscis";
+		default: // En principio nunca entraría aquí
+			return "Error debe introducer un número del 1 al 12";
+		}
+	}
+
+	public static void zodiac() {
+		int monthNumber;
+
+		System.out.print("\nIntroduzca su mes de nacimiento(1-12): ");
+		monthNumber = reader.nextInt();
+
+		if (1 <= monthNumber && monthNumber >= 12) {
+			System.out.println("Su signo zodiacal es " + zodiacSign(monthNumber));
+		} else {
+			System.out.println("Error debe introducer un número del 1 al 12 ");
+		}
+
+	}
+
+	public static void checkBigestNumber(float numb1, float numb2, float numb3) {
+		if (numb1 > numb2 && numb1 > numb3) {
+			System.out.print("\nEl numéro " + numb1 + " es el mayor de los 3 números.");
+		} else if (numb2 > numb3) {
+			System.out.print("\nEl numéro " + numb2 + " es el mayor de los 3 números.");
+		} else {
+			System.out.print("\nEl numéro " + numb3 + " es el mayor de los 3 números.");
+		}
+	}
+
+	public static void bigestNumber() {
+		float number1;
+		float number2;
+		float number3;
+
+		System.out.print("\nIntroduzca el primer número flotante de los 3: ");
+		number1 = reader.nextFloat();
+
+		System.out.print("\nIntroduzca el segundo número flotante de los 3: ");
+		number2 = reader.nextFloat();
+
+		if (number1 == number2) {
+			System.out.print(
+					"\nEl numero 2 no puede ser igual que el 1. Introduzca de nuevo el segundo número flotante de los 3: ");
+			number2 = reader.nextFloat();
+		}
+
+		System.out.print("\nIntroduzca el tercer número flotante de los 3: ");
+		number3 = reader.nextFloat();
+
+		if (number1 == number3 || number2 == number3) {
+			System.out.print(
+					"\nEl numero 2 no puede ser igual que los anteriores. Introduzca de nuevo el tercer número flotante de los 3: ");
+			number3 = reader.nextFloat();
+		}
+
+		checkBigestNumber(number1, number2, number3);
 
 	}
 
@@ -123,10 +209,10 @@ public class Start {
 					rest();
 					break;
 				case 6:
-					System.out.println("6");
+					zodiac();
 					break;
 				case 7:
-					System.out.println("7");
+					bigestNumber();
 					break;
 				case 8:
 					System.out.println("8");
