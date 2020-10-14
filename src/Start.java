@@ -49,13 +49,13 @@ public class Start {
 	public static void multiply() {
 		float num1;
 		float num2;
-
+		
 		System.out.print("\nIntroduzca el primer número flotante a multiplicar: ");
 		num1 = reader.nextFloat();
-
+		
 		System.out.print("Introduzca el segundo número flotante a multiplicar: ");
 		num2 = reader.nextFloat();
-
+		
 		System.out.println("La multiplicación de " + num1 + " y " + num2 + " es " + (num1 * num2));
 	}
 
@@ -133,7 +133,7 @@ public class Start {
 		System.out.print("\nIntroduzca su mes de nacimiento(1-12): ");
 		monthNumber = reader.nextInt();
 
-		if (1 <= monthNumber && monthNumber >= 12) {
+		if (1 <= monthNumber && monthNumber <= 12) {
 			System.out.println("Su signo zodiacal es " + zodiacSign(monthNumber));
 		} else {
 			System.out.println("Error debe introducer un número del 1 al 12 ");
@@ -180,6 +180,24 @@ public class Start {
 		checkBigestNumber(number1, number2, number3);
 
 	}
+	
+	public static void isCapicua() {
+		
+		String numberString;
+		String numberStringReversed;
+
+		
+		System.out.println("Introduzca un número para saber si es capicúa: ");
+		numberString = reader.next();
+		
+		numberStringReversed = new StringBuffer(numberString).reverse().toString(); 
+		
+		if (numberString.equals(numberStringReversed)) {
+			System.out.print("\nSI es capicúa");
+		} else {
+			System.out.print("\nNO es capicúa");
+		}
+	}
 
 	public static void main(String[] args) {
 
@@ -215,7 +233,7 @@ public class Start {
 					bigestNumber();
 					break;
 				case 8:
-					System.out.println("8");
+					isCapicua();
 					break;
 				case 0:
 					System.out.println("El programa ha finalizado");
