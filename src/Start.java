@@ -27,31 +27,36 @@ public class Start {
 		System.out.println(" 0. Salir");
 	}
 
-	public static void add() {
-		float num1;
-		float num2;
-
-		System.out.print("\nIntroduzca el primer número flotante a sumar: ");
-		num1 = reader.nextFloat();
-
-		System.out.print("Introduzca el segundo número flotante a sumar: ");
-		num2 = reader.nextFloat();
-
-		System.out.println("La suma de " + num1 + " y " + num2 + " es " + (num1 + num2));
+	public static float add(float num1, float num2) {
+		return (num1 + num2);
 	}
 
-	public static void subtract() {
-		float num1;
-		float num2;
+	public static float callForNumbersToAdd(int option) {
+		float number;
+		
+		 if (option == 1)
+			System.out.print("\nIntroduzca el primer número flotante a sumar: ");
+		else if (option == 2)
+			System.out.print("Introduzca el segundo número flotante a sumar: ");
+		return number = reader.nextFloat();
 
-		System.out.print("\nIntroduzca el primer número flotante a restar: ");
-		num1 = reader.nextFloat();
-
-		System.out.print("Introduzca el segundo número flotante a restar: ");
-		num2 = reader.nextFloat();
-
-		System.out.println("La resta de " + num1 + " y " + num2 + " es " + (num1 - num2));
 	}
+	
+	public static float callForNumbersToSubtract(int option) {
+		float number;
+		
+		 if (option == 1)
+			System.out.print("\nIntroduzca el primer número flotante a restar: ");
+		 else if (option == 2)
+			System.out.print("Introduzca el segundo número flotante a restar: ");
+		return number = reader.nextFloat();
+
+	}
+	
+	public static float subtract(float num1, float num2) {
+		return (num1 - num2);
+	}
+	
 
 	public static void multiply() {
 		float num1;
@@ -239,10 +244,10 @@ public class Start {
 
 				switch (optionSelected) {
 				case 1:
-					add();
+					add(callForNumbersToAdd(1), callForNumbersToAdd(2));
 					break;
 				case 2:
-					subtract();
+					subtract(callForNumbersToSubtract(1),callForNumbersToSubtract(2));
 					break;
 				case 3:
 					multiply();
