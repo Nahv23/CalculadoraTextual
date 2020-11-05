@@ -1,3 +1,9 @@
+/*
+ * 
+ * Author: @Nerea Aparicio Hita 
+ * 
+ */
+
 import java.util.Scanner;
 
 public class Start {
@@ -17,6 +23,7 @@ public class Start {
 		System.out.println(" 6. Zoodíaco ");
 		System.out.println(" 7. Número mayor de 3 números ");
 		System.out.println(" 8. Capicua ");
+		System.out.println(" 9. Factorial ");
 		System.out.println(" 0. Salir");
 	}
 
@@ -49,13 +56,13 @@ public class Start {
 	public static void multiply() {
 		float num1;
 		float num2;
-		
+
 		System.out.print("\nIntroduzca el primer número flotante a multiplicar: ");
 		num1 = reader.nextFloat();
-		
+
 		System.out.print("Introduzca el segundo número flotante a multiplicar: ");
 		num2 = reader.nextFloat();
-		
+
 		System.out.println("La multiplicación de " + num1 + " y " + num2 + " es " + (num1 * num2));
 	}
 
@@ -180,23 +187,43 @@ public class Start {
 		checkBigestNumber(number1, number2, number3);
 
 	}
-	
+
 	public static void isCapicua() {
-		
+
 		String numberString;
 		String numberStringReversed;
 
-		
 		System.out.println("Introduzca un número para saber si es capicúa: ");
 		numberString = reader.next();
-		
-		numberStringReversed = new StringBuffer(numberString).reverse().toString(); 
-		
+
+		numberStringReversed = new StringBuffer(numberString).reverse().toString();
+
 		if (numberString.equals(numberStringReversed)) {
 			System.out.print("\nSI es capicúa");
 		} else {
 			System.out.print("\nNO es capicúa");
 		}
+	}
+
+	public static long factorialCalculation(int number) {
+
+		if (number < 1)
+			return -1;
+		else if (number == 1)
+			return 1;
+		else
+			return (number * factorialCalculation(number - 1));
+	}
+
+	public static void factorialOption() {
+
+		System.out.print("\nIntroduzca un número: ");
+		int number = reader.nextInt();
+
+		if (factorialCalculation(number) == -1)
+			System.out.println("\nError valor inferior a 0, introduzca un valor superior a 0");
+		else
+			System.out.println("\nEl factorial es: " + factorialCalculation(number));
 	}
 
 	public static void main(String[] args) {
@@ -234,6 +261,9 @@ public class Start {
 					break;
 				case 8:
 					isCapicua();
+					break;
+				case 9:
+					factorialOption();
 					break;
 				case 0:
 					System.out.println("El programa ha finalizado");
