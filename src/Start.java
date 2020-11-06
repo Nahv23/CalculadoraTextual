@@ -27,6 +27,7 @@ public class Start {
 		System.out.println(" 0. Salir");
 	}
 
+	
 	public static float callForNumbersTo(int option, String operation) {
 		float number;
 
@@ -37,10 +38,10 @@ public class Start {
 		return number = reader.nextFloat();
 	}
 
+	
 	public static float add(float num1, float num2) {
 		return (num1 + num2);
 	}
-
 
 	public static float subtract(float num1, float num2) {
 		return (num1 - num2);
@@ -51,14 +52,13 @@ public class Start {
 	}
 
 	public static void errorDivideBy0() {
-		System.out.println("Error division por 0");
+		System.out.print("Error division por 0");
 	}
 
 	public static float divide(float num1, float num2) {
 		if (num2 != 0) {
 			return (num1 / num2);
 		} else {
-			errorDivideBy0();
 			return (-1.0F);
 		}
 	}
@@ -71,68 +71,37 @@ public class Start {
 		}
 	}
 
-	public static void rest() {
-		float num1;
-		float num2;
 
-		System.out.print("\nIntroduzca el primer número flotante a dividir: ");
-		num1 = reader.nextFloat();
-
-		System.out.print("Introduzca el segundo número flotante a dividir: ");
-		num2 = reader.nextFloat();
-
-		if (num2 != 0) {
-			System.out.println("EL RESTO de " + num1 + " y " + num2 + " es " + (num1 % num2));
-		} else {
-			System.out.println("Error division por 0");
+	public static String zodiac(int numberMonth) {
+		
+		switch (numberMonth) {
+			case 1:
+				return "Su signo zodiacal es Aries";
+			case 2:
+				return "Su signo zodiacal es Tauro";
+			case 3:
+				return "Su signo zodiacal es éminis";
+			case 4:
+				return "Su signo zodiacal es Cáncer";
+			case 5:
+				return "Su signo zodiacal es Leo";
+			case 6:
+				return "Su signo zodiacal es Virgo";
+			case 7:
+				return "Su signo zodiacal es Libra";
+			case 8:
+				return "Su signo zodiacal es Escorpio";
+			case 9:
+				return "Su signo zodiacal es Sagitario";
+			case 10:
+				return "Su signo zodiacal es Capricornio";
+			case 11:
+				return "Su signo zodiacal es Acuario";
+			case 12:
+				return "Su signo zodiacal es Piscis";
+			default: // En principio nunca entraría aquí
+				return "Error debe introducer un número del 1 al 12";
 		}
-
-	}
-
-	public static String zodiacSign(int number) {
-
-		switch (number) {
-		case 1:
-			return "Aries";
-		case 2:
-			return "Tauro";
-		case 3:
-			return "Géminis";
-		case 4:
-			return "Cáncer";
-		case 5:
-			return "Leo";
-		case 6:
-			return "Virgo";
-		case 7:
-			return "Libra";
-		case 8:
-			return "Escorpio";
-		case 9:
-			return "Sagitario";
-		case 10:
-			return "Capricornio";
-		case 11:
-			return "Acuario";
-		case 12:
-			return "Piscis";
-		default: // En principio nunca entraría aquí
-			return "Error debe introducer un número del 1 al 12";
-		}
-	}
-
-	public static void zodiac() {
-		int monthNumber;
-
-		System.out.print("\nIntroduzca su mes de nacimiento(1-12): ");
-		monthNumber = reader.nextInt();
-
-		if (1 <= monthNumber && monthNumber <= 12) {
-			System.out.println("Su signo zodiacal es " + zodiacSign(monthNumber));
-		} else {
-			System.out.println("Error debe introducer un número del 1 al 12 ");
-		}
-
 	}
 
 	public static void checkBigestNumber(float numb1, float numb2, float numb3) {
@@ -219,6 +188,7 @@ public class Start {
 		float number1;
 		float number2;
 		float number3;
+		int monthNumber;
 
 		try {
 			do {
@@ -241,21 +211,28 @@ public class Start {
 					case 3:
 						number1 = callForNumbersTo(1, "multiplicar");
 						number2 = callForNumbersTo(2, "multiplicar");
-						System.out.println("La resta de " + number1 + " y " + number2 + " es " + multiply(number1, number2));
+						System.out.println("La multiplicación de " + number1 + " y " + number2 + " es " + multiply(number1, number2));
 						break;
 					case 4:
 						number1 = callForNumbersTo(1, "dividir");
 						number2 = callForNumbersTo(2, "dividir");
-						if (number2 == 0)
-							
+						if(divide(number1, number2) == -1)
+							errorDivideBy0();
 						else
-						number2 = System.out.println("La resta de " + number1 + " y " + number2 + " es " + divide(number1, number2));
+							System.out.println("La division de " + number1 + " y " + number2 + " es " + divide(number1, number2));
 						break;
 					case 5:
-						rest();
+						number1 = callForNumbersTo(1, "dividir");
+						number2 = callForNumbersTo(2, "dividir");
+						if(rest(number1, number2) == -1)
+							errorDivideBy0();
+						else
+							System.out.println("La division de " + number1 + " y " + number2 + " es " + rest(number1, number2));
 						break;
 					case 6:
-						zodiac();
+						System.out.print("\nIntroduzca su mes de nacimiento(1-12): ");
+						monthNumber = reader.nextInt();
+						System.out.println(zodiac(monthNumber));
 						break;
 					case 7:
 						bigestNumber();
