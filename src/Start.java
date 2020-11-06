@@ -35,6 +35,8 @@ public class Start {
 			System.out.print("\nIntroduzca el primer número flotante a "+ operation + ": ");
 		else if (option == 2)
 			System.out.print("Introduzca el segundo número flotante a "+ operation + ": ");
+		else if (option == 3)
+			System.out.print("Introduzca el tercer número flotante a "+ operation + ": ");
 		return number = reader.nextFloat();
 	}
 
@@ -104,91 +106,60 @@ public class Start {
 		}
 	}
 
-	public static void checkBigestNumber(float numb1, float numb2, float numb3) {
-		if (numb1 > numb2 && numb1 > numb3) {
-			System.out.print("\nEl numéro " + numb1 + " es el mayor de los 3 números.");
-		} else if (numb2 > numb3) {
-			System.out.print("\nEl numéro " + numb2 + " es el mayor de los 3 números.");
+	public static float mayor(float numb1, float numb2, float numb3) {
+		
+		if( numb1 == numb2 && numb2 == numb3) {
+			return -1;
 		} else {
-			System.out.print("\nEl numéro " + numb3 + " es el mayor de los 3 números.");
+			if (numb1 > numb2 && numb1 > numb3) {
+				return numb1;
+			} else if (numb2 > numb3) {
+				return numb2;
+			} else {
+				return numb3;
+			}
 		}
 	}
 
-	public static void bigestNumber() {
-		float number1;
-		float number2;
-		float number3;
 
-		System.out.print("\nIntroduzca el primer número flotante de los 3: ");
-		number1 = reader.nextFloat();
 
-		System.out.print("\nIntroduzca el segundo número flotante de los 3: ");
-		number2 = reader.nextFloat();
-
-		if (number1 == number2) {
-			System.out.print(
-					"\nEl numero 2 no puede ser igual que el 1. Introduzca de nuevo el segundo número flotante de los 3: ");
-			number2 = reader.nextFloat();
-		}
-
-		System.out.print("\nIntroduzca el tercer número flotante de los 3: ");
-		number3 = reader.nextFloat();
-
-		if (number1 == number3 || number2 == number3) {
-			System.out.print(
-					"\nEl numero 2 no puede ser igual que los anteriores. Introduzca de nuevo el tercer número flotante de los 3: ");
-			number3 = reader.nextFloat();
-		}
-
-		checkBigestNumber(number1, number2, number3);
-
-	}
-
-	public static void isCapicua() {
+	public static boolean isCapicua(int number) {
 
 		String numberString;
 		String numberStringReversed;
 
-		System.out.println("Introduzca un número para saber si es capicúa: ");
-		numberString = reader.next();
+		numberString = Integer.toString(number);
 
 		numberStringReversed = new StringBuffer(numberString).reverse().toString();
 
 		if (numberString.equals(numberStringReversed)) {
 			System.out.print("\nSI es capicúa");
+			return true;
 		} else {
 			System.out.print("\nNO es capicúa");
+			return false;
 		}
 	}
 
-	public static long factorialCalculation(int number) {
+	public static long factorial(int number) {
 
 		if (number < 1)
 			return -1;
 		else if (number == 1)
 			return 1;
 		else
-			return (number * factorialCalculation(number - 1));
+			return (number * factorial(number - 1));
 	}
 
-	public static void factorialOption() {
-
-		System.out.print("\nIntroduzca un número: ");
-		int number = reader.nextInt();
-
-		if (factorialCalculation(number) == -1)
-			System.out.println("\nError valor inferior a 0, introduzca un valor superior a 0");
-		else
-			System.out.println("\nEl factorial es: " + factorialCalculation(number));
-	}
 
 	public static void main(String[] args) {
 
 		int optionSelected;
-		float number1;
-		float number2;
-		float number3;
+		float numberFloat1;
+		float numberFloat2;
+		float numberFloat3;
 		int monthNumber;
+		int numberInt1;
 
 		try {
 			do {
@@ -199,35 +170,35 @@ public class Start {
 
 				switch (optionSelected) {
 					case 1:
-						number1 = callForNumbersTo(1, "sumar");
-						number2 = callForNumbersTo(2, "sumar");
-						System.out.println("La suma de " + number1 + " y " + number2 + " es " + add(number1, number2));
+						numberFloat1 = callForNumbersTo(1, "sumar");
+						numberFloat2 = callForNumbersTo(2, "sumar");
+						System.out.println("La suma de " + numberFloat1 + " y " + numberFloat2 + " es " + add(numberFloat1, numberFloat2));
 						break;
 					case 2:
-						number1 = callForNumbersTo(1, "restar");
-						number2 = callForNumbersTo(2, "restar");
-						System.out.println("La resta de " + number1 + " y " + number2 + " es " + subtract(number1, number2));
+						numberFloat1 = callForNumbersTo(1, "restar");
+						numberFloat2 = callForNumbersTo(2, "restar");
+						System.out.println("La resta de " + numberFloat1 + " y " + numberFloat2 + " es " + subtract(numberFloat1, numberFloat2));
 						break;
 					case 3:
-						number1 = callForNumbersTo(1, "multiplicar");
-						number2 = callForNumbersTo(2, "multiplicar");
-						System.out.println("La multiplicación de " + number1 + " y " + number2 + " es " + multiply(number1, number2));
+						numberFloat1 = callForNumbersTo(1, "multiplicar");
+						numberFloat2 = callForNumbersTo(2, "multiplicar");
+						System.out.println("La multiplicación de " + numberFloat1 + " y " + numberFloat2 + " es " + multiply(numberFloat1, numberFloat2));
 						break;
 					case 4:
-						number1 = callForNumbersTo(1, "dividir");
-						number2 = callForNumbersTo(2, "dividir");
-						if(divide(number1, number2) == -1)
+						numberFloat1 = callForNumbersTo(1, "dividir");
+						numberFloat2 = callForNumbersTo(2, "dividir");
+						if(divide(numberFloat1, numberFloat2) == -1)
 							errorDivideBy0();
 						else
-							System.out.println("La division de " + number1 + " y " + number2 + " es " + divide(number1, number2));
+							System.out.println("La division de " + numberFloat1 + " y " + numberFloat2 + " es " + divide(numberFloat1, numberFloat2));
 						break;
 					case 5:
-						number1 = callForNumbersTo(1, "dividir");
-						number2 = callForNumbersTo(2, "dividir");
-						if(rest(number1, number2) == -1)
+						numberFloat1 = callForNumbersTo(1, "dividir");
+						numberFloat2 = callForNumbersTo(2, "dividir");
+						if(rest(numberFloat1, numberFloat2) == -1)
 							errorDivideBy0();
 						else
-							System.out.println("La division de " + number1 + " y " + number2 + " es " + rest(number1, number2));
+							System.out.println("La division de " + numberFloat1 + " y " + numberFloat2 + " es " + rest(numberFloat1, numberFloat2));
 						break;
 					case 6:
 						System.out.print("\nIntroduzca su mes de nacimiento(1-12): ");
@@ -235,13 +206,27 @@ public class Start {
 						System.out.println(zodiac(monthNumber));
 						break;
 					case 7:
-						bigestNumber();
+						numberFloat1 = callForNumbersTo(1, "comparar");
+						numberFloat2 = callForNumbersTo(2, "comparar");
+						numberFloat3 = callForNumbersTo(3, "comparar");
+						if(mayor(numberFloat1, numberFloat2, numberFloat3) == -1)
+							System.out.println("Los 3 numeros son iguales");
+						else	
+							System.out.println("El numero " + mayor(numberFloat1, numberFloat2, numberFloat3) + " es el mayot de los 3 números");
 						break;
 					case 8:
-						isCapicua();
+						System.out.println("Introduzca un número para saber si es capicúa: ");
+						numberInt1 = reader.nextInt();
+						isCapicua(numberInt1);
 						break;
 					case 9:
-						factorialOption();
+						System.out.print("\nIntroduzca un número para calcular el factorial: ");
+						numberInt1 = reader.nextInt();
+
+						if (factorial(numberInt1) == -1)
+							System.out.println("\nError valor inferior a 0, introduzca un valor superior a 0");
+						else
+							System.out.println("\nEl factorial es: " + factorial(numberInt1));
 						break;
 					case 0:
 						System.out.println("El programa ha finalizado");
