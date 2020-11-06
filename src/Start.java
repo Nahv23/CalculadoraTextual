@@ -27,66 +27,77 @@ public class Start {
 		System.out.println(" 0. Salir");
 	}
 
+	public static float callForNumbersTo(int option, String operation) {
+		float number;
+
+		if (option == 1)
+			System.out.print("\nIntroduzca el primer número flotante a "+ operation + ": ");
+		else if (option == 2)
+			System.out.print("Introduzca el segundo número flotante a "+ operation + ": ");
+		return number = reader.nextFloat();
+	}
+
 	public static float add(float num1, float num2) {
 		return (num1 + num2);
 	}
 
-	public static float callForNumbersToAdd(int option) {
-		float number;
-		
-		 if (option == 1)
-			System.out.print("\nIntroduzca el primer número flotante a sumar: ");
-		else if (option == 2)
-			System.out.print("Introduzca el segundo número flotante a sumar: ");
-		return number = reader.nextFloat();
-
-	}
-	
 	public static float callForNumbersToSubtract(int option) {
 		float number;
-		
-		 if (option == 1)
+
+		if (option == 1)
 			System.out.print("\nIntroduzca el primer número flotante a restar: ");
-		 else if (option == 2)
+		else if (option == 2)
 			System.out.print("Introduzca el segundo número flotante a restar: ");
 		return number = reader.nextFloat();
-
 	}
-	
+
 	public static float subtract(float num1, float num2) {
 		return (num1 - num2);
 	}
-	
 
-	public static void multiply() {
-		float num1;
-		float num2;
+	public static float callForNumbersToMultiply(int option) {
+		float number;
 
-		System.out.print("\nIntroduzca el primer número flotante a multiplicar: ");
-		num1 = reader.nextFloat();
-
-		System.out.print("Introduzca el segundo número flotante a multiplicar: ");
-		num2 = reader.nextFloat();
-
-		System.out.println("La multiplicación de " + num1 + " y " + num2 + " es " + (num1 * num2));
+		if (option == 1)
+			System.out.print("\nIntroduzca el primer número flotante a multiplicar: ");
+		else if (option == 2)
+			System.out.print("Introduzca el segundo número flotante a multiplicar: ");
+		return number = reader.nextFloat();
 	}
 
-	public static void divide() {
-		float num1;
-		float num2;
+	public static float multiply(float num1, float num2) {
+		return (num1 * num2);
+	}
 
-		System.out.print("\nIntroduzca el primer número flotante a dividir: ");
-		num1 = reader.nextFloat();
+	public static void errorDivideBy0() {
+		System.out.println("Error division por 0");
+	}
 
-		System.out.print("Introduzca el segundo número flotante a dividir: ");
-		num2 = reader.nextFloat();
+	public static float callForNumbersToDivide(int option) {
+		float number;
 
+		if (option == 1)
+			System.out.print("\nIntroduzca el primer número flotante a dividir: ");
+		else if (option == 2)
+			System.out.print("Introduzca el segundo número flotante a dividir: ");
+		return number = reader.nextFloat();
+	}
+
+	public static float divide(float num1, float num2) {
 		if (num2 != 0) {
-			System.out.println("La division de " + num1 + " y " + num2 + " es " + (num1 / num2));
+			return (num1 / num2);
 		} else {
-			System.out.println("Error division por 0");
+			errorDivideBy0();
+			return (-1.0F);
 		}
+	}
 
+	public static float rest(float num1, float num2) {
+		if (num2 != 0) {
+			return (num1 % num2);
+		} else {
+			return (-1.0F);
+		}
 	}
 
 	public static void rest() {
@@ -234,6 +245,9 @@ public class Start {
 	public static void main(String[] args) {
 
 		int optionSelected;
+		float number1;
+		float number2;
+		float number3;
 
 		try {
 			do {
@@ -244,16 +258,22 @@ public class Start {
 
 				switch (optionSelected) {
 				case 1:
-					add(callForNumbersToAdd(1), callForNumbersToAdd(2));
+					number1 = callForNumbersTo(1, "sumar");
+					number2 = callForNumbersTo(2, "sumar");
+					System.out.println("La suma de " + number1 + " y " + number2 + " es " + add(number1, number2));
 					break;
 				case 2:
-					subtract(callForNumbersToSubtract(1),callForNumbersToSubtract(2));
+					number1 = callForNumbersTo(1, "restar");
+					number2 = callForNumbersTo(2, "restar");
+					System.out.println("La resta de " + number1 + " y " + number2 + " es " + subtract(number1, number2));
 					break;
 				case 3:
-					multiply();
+					number1 = callForNumbersTo(1, "multiplicar");
+					number2 = callForNumbersTo(2, "multiplicar");
+					System.out.println("La resta de " + number1 + " y " + number2 + " es " + multiply(number1, number2));
 					break;
 				case 4:
-					divide();
+					divide(callForNumbersToDivide(1), callForNumbersToDivide(2));
 					break;
 				case 5:
 					rest();
