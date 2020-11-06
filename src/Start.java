@@ -41,46 +41,17 @@ public class Start {
 		return (num1 + num2);
 	}
 
-	public static float callForNumbersToSubtract(int option) {
-		float number;
-
-		if (option == 1)
-			System.out.print("\nIntroduzca el primer número flotante a restar: ");
-		else if (option == 2)
-			System.out.print("Introduzca el segundo número flotante a restar: ");
-		return number = reader.nextFloat();
-	}
 
 	public static float subtract(float num1, float num2) {
 		return (num1 - num2);
 	}
-
-	public static float callForNumbersToMultiply(int option) {
-		float number;
-
-		if (option == 1)
-			System.out.print("\nIntroduzca el primer número flotante a multiplicar: ");
-		else if (option == 2)
-			System.out.print("Introduzca el segundo número flotante a multiplicar: ");
-		return number = reader.nextFloat();
-	}
-
+	
 	public static float multiply(float num1, float num2) {
 		return (num1 * num2);
 	}
 
 	public static void errorDivideBy0() {
 		System.out.println("Error division por 0");
-	}
-
-	public static float callForNumbersToDivide(int option) {
-		float number;
-
-		if (option == 1)
-			System.out.print("\nIntroduzca el primer número flotante a dividir: ");
-		else if (option == 2)
-			System.out.print("Introduzca el segundo número flotante a dividir: ");
-		return number = reader.nextFloat();
 	}
 
 	public static float divide(float num1, float num2) {
@@ -257,45 +228,50 @@ public class Start {
 				optionSelected = reader.nextInt();
 
 				switch (optionSelected) {
-				case 1:
-					number1 = callForNumbersTo(1, "sumar");
-					number2 = callForNumbersTo(2, "sumar");
-					System.out.println("La suma de " + number1 + " y " + number2 + " es " + add(number1, number2));
-					break;
-				case 2:
-					number1 = callForNumbersTo(1, "restar");
-					number2 = callForNumbersTo(2, "restar");
-					System.out.println("La resta de " + number1 + " y " + number2 + " es " + subtract(number1, number2));
-					break;
-				case 3:
-					number1 = callForNumbersTo(1, "multiplicar");
-					number2 = callForNumbersTo(2, "multiplicar");
-					System.out.println("La resta de " + number1 + " y " + number2 + " es " + multiply(number1, number2));
-					break;
-				case 4:
-					divide(callForNumbersToDivide(1), callForNumbersToDivide(2));
-					break;
-				case 5:
-					rest();
-					break;
-				case 6:
-					zodiac();
-					break;
-				case 7:
-					bigestNumber();
-					break;
-				case 8:
-					isCapicua();
-					break;
-				case 9:
-					factorialOption();
-					break;
-				case 0:
-					System.out.println("El programa ha finalizado");
-					break;
-				default:
-					System.out.println("Opción errónea");
-					break;
+					case 1:
+						number1 = callForNumbersTo(1, "sumar");
+						number2 = callForNumbersTo(2, "sumar");
+						System.out.println("La suma de " + number1 + " y " + number2 + " es " + add(number1, number2));
+						break;
+					case 2:
+						number1 = callForNumbersTo(1, "restar");
+						number2 = callForNumbersTo(2, "restar");
+						System.out.println("La resta de " + number1 + " y " + number2 + " es " + subtract(number1, number2));
+						break;
+					case 3:
+						number1 = callForNumbersTo(1, "multiplicar");
+						number2 = callForNumbersTo(2, "multiplicar");
+						System.out.println("La resta de " + number1 + " y " + number2 + " es " + multiply(number1, number2));
+						break;
+					case 4:
+						number1 = callForNumbersTo(1, "dividir");
+						number2 = callForNumbersTo(2, "dividir");
+						if (number2 == 0)
+							
+						else
+						number2 = System.out.println("La resta de " + number1 + " y " + number2 + " es " + divide(number1, number2));
+						break;
+					case 5:
+						rest();
+						break;
+					case 6:
+						zodiac();
+						break;
+					case 7:
+						bigestNumber();
+						break;
+					case 8:
+						isCapicua();
+						break;
+					case 9:
+						factorialOption();
+						break;
+					case 0:
+						System.out.println("El programa ha finalizado");
+						break;
+					default:
+						System.out.println("Opción errónea");
+						break;
 				}
 
 			} while (optionSelected != 0);
